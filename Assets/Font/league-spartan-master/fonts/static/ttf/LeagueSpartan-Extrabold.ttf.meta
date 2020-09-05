@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: 7cd3b695f6ed85d48bb4a4ef991e5937
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: League Spartan
+  fontNames:
+  - League Spartan
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 711c2970acec73846977f9c4fc7b2f72, type: 3}
+  - {fileID: 12800000, guid: 4a9190013945cd34cb0f4195d289eefa, type: 3}
+  - {fileID: 12800000, guid: a6120b21700feab4aa2698f3ded1a138, type: 3}
+  - {fileID: 12800000, guid: 56c668c142fa0294f91e66c2a7aa4e35, type: 3}
+  - {fileID: 12800000, guid: a00b5f32eadafd04e9d0b3b75a84e881, type: 3}
+  - {fileID: 12800000, guid: 6850d5968b32d9e4c80ed0503a75738e, type: 3}
+  - {fileID: 12800000, guid: 1bf8d007d15573644843265c30e36419, type: 3}
+  - {fileID: 12800000, guid: d216dc373ddd5c340acc759894374810, type: 3}
+  - {fileID: 12800000, guid: 5c3efce9ac825124aa1095306a5fd652, type: 3}
+  - {fileID: 12800000, guid: 7386feca623f4ee4abb4f69c975f880b, type: 3}
+  - {fileID: 12800000, guid: 4736cadd59d37d54ca413ecd074708b5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

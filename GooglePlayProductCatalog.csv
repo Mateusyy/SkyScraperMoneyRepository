@@ -1,0 +1,6 @@
+Product ID,Published State,Purchase Type,Auto Translate,Locale; Title; Description,Auto Fill Prices,Price,Pricing Template ID
+com.pinkmonkeybrain.skyscrapermoney.1000gold,published,managed_by_android,false,en_US;1000 gold;Adds 1000 gold,true,69990000,
+com.pinkmonkeybrain.skyscrapermoney.600gold,published,managed_by_android,false,en_US;600 gold;Adds 600 gold,true,49990000,
+com.pinkmonkeybrain.skyscrapermoney.200gold,published,managed_by_android,false,en_US;200 gold;Adds 200 gold,true,20990000,
+com.pinkmonkeybrain.skyscrapermoney.90gold,published,managed_by_android,false,en_US;90 gold;Adds 90 gold,true,9990000,
+com.pinkmonkeybrain.skyscrapermoney.40gold,published,managed_by_android,false,en_US;40 gold;Adds 40 gold,true,6990000,

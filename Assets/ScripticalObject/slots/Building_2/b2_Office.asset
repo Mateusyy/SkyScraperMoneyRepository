@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e514e30da1c7b9488bd12c724ac82cc, type: 3}
+  m_Name: b2_Office
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: d078bb03e4f754341ab7aec007423ea0, type: 3}
+  floorColor: {r: 0.13333334, g: 0.4, b: 0.52156866, a: 1}
+  timerToUnlock: 2400
+  numberOfBuilding: 2
+  type: 15
+  isUnlocked: 0
+  valueOfSpeedUp: 60
+  maxLevel: 5000
+  initialCost: 3.0283615e+11
+  costMultiplier: 1.055
+  initialTime: 43200
+  timeMultiplier: 0.98564
+  initialProfit: 9.52893e+16
+  milestoneMultipliers:
+  - level: 5
+    multiplier: 1.05
+  - level: 10
+    multiplier: 1.25
+  - level: 20
+    multiplier: 1.5
+  - level: 30
+    multiplier: 1.75
+  - level: 50
+    multiplier: 2
+  - level: 100
+    multiplier: 2.25
+  - level: 150
+    multiplier: 2.5
+  - level: 200
+    multiplier: 2.75
+  - level: 250
+    multiplier: 3
+  - level: 500
+    multiplier: 3.5
+  - level: 1000
+    multiplier: 4
+  - level: 2000
+    multiplier: 4.5
+  - level: 3000
+    multiplier: 5
+  - level: 4000
+    multiplier: 5.5
+  - level: 5000
+    multiplier: 6
+  interior: {fileID: 8587152238609206276, guid: 0e266677f451d624699b09ec90cd3fb5,
+    type: 3}

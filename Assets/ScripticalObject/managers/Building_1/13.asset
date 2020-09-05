@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572b750c3d0476a43a6e5b15c3b0a93a, type: 3}
+  m_Name: 13
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 0850a083926fd494b8cdb82b4ced6773, type: 3}
+  imageForSlot: {fileID: 21300000, guid: 6137d62a79f7b8c449317c5e46dc2263, type: 3}
+  numberOfBuilding: 1
+  nameKey: Gerardo
+  type: 1
+  slot: 2
+  showCashPerSecond: 0
+  costReductionMultiplier: 0.8
+  cost: 3e+15
+  costByGold: 4

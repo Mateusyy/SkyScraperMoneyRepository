@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "876822669816",
+    "firebase_url": "https://skyscraper-money.firebaseio.com",
+    "project_id": "skyscraper-money",
+    "storage_bucket": "skyscraper-money.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876822669816:android:1a7e00984c41a17fa48e0d",
+        "android_client_info": {
+          "package_name": "com.pinkmonkeybrain.skyscraper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "876822669816-89u4qoq4eclaro549uos65astuvsqflr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBL2_5pbF_Q3H1Vx3SR0uU3twdGEa_gHyM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "876822669816-72qhl9lrn6i7663pg9jruq9jf73vghhe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "876822669816-2dcs6a4d70dp7jhd2gnc71quvpeg2mlu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.pinkmonkeybrain.skyscraper.ios"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

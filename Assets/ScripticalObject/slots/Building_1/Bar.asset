@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e514e30da1c7b9488bd12c724ac82cc, type: 3}
+  m_Name: Bar
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: d078bb03e4f754341ab7aec007423ea0, type: 3}
+  floorColor: {r: 0.20392159, g: 0.18039216, b: 0.16470589, a: 1}
+  timerToUnlock: 0
+  numberOfBuilding: 1
+  type: 0
+  isUnlocked: 1
+  valueOfSpeedUp: 0.085
+  maxLevel: 5000
+  initialCost: 3.74
+  costMultiplier: 1.075
+  initialTime: 1
+  timeMultiplier: 0.99164
+  initialProfit: 1.000001
+  milestoneMultipliers:
+  - level: 5
+    multiplier: 1.05
+  - level: 25
+    multiplier: 1.25
+  - level: 50
+    multiplier: 1.5
+  - level: 100
+    multiplier: 1.75
+  - level: 200
+    multiplier: 2
+  - level: 500
+    multiplier: 2.5
+  - level: 750
+    multiplier: 3
+  - level: 1000
+    multiplier: 3.5
+  - level: 1250
+    multiplier: 4
+  - level: 1500
+    multiplier: 4.5
+  - level: 1750
+    multiplier: 5
+  - level: 2000
+    multiplier: 5.5
+  - level: 2250
+    multiplier: 6
+  - level: 2500
+    multiplier: 6.5
+  - level: 2750
+    multiplier: 7
+  - level: 3000
+    multiplier: 7.5
+  - level: 3250
+    multiplier: 8
+  - level: 3500
+    multiplier: 8.5
+  - level: 3750
+    multiplier: 9
+  - level: 4000
+    multiplier: 9.5
+  - level: 4250
+    multiplier: 10
+  - level: 4500
+    multiplier: 10.5
+  - level: 4750
+    multiplier: 11
+  - level: 5000
+    multiplier: 11.5
+  interior: {fileID: 7012808785450546337, guid: 8b5ed9fb60e6480469c26f6a3b7fa53a,
+    type: 3}

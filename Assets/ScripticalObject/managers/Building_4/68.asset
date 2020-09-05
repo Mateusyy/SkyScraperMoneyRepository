@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572b750c3d0476a43a6e5b15c3b0a93a, type: 3}
+  m_Name: 68
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: dfedb72af7135d745817440752ac8458, type: 3}
+  numberOfBuilding: 4
+  nameKey: Charles Hayes
+  type: 0
+  slot: 37
+  showCashPerSecond: 0
+  costReductionMultiplier: 0
+  cost: 1000
+  costByGold: 0
