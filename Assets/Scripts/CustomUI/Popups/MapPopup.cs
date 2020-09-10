@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class MapPopup : MonoBehaviour
 {
+    [SerializeField]
+    private Text title;
     private Animator animator;
     public BuildingMap[] buildingMap;
     public ConfirmationPopup confirmationPopup;
@@ -17,6 +19,8 @@ public class MapPopup : MonoBehaviour
 
     private void LoadInformationsAboutBuildings()
     {
+        title.text = LocalizationManager.instance.StringForKey("MapPopup_Title");
+
         for (int i = 0; i < buildingMap.Length; i++)
         {
             //buildingMap[i].Initialize(i);

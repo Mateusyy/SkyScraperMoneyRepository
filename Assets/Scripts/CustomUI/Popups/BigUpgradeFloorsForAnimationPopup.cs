@@ -32,7 +32,7 @@ public class BigUpgradeFloorsForAnimationPopup : MonoBehaviour
     private void Show()
     {
         icon.sprite = iconToShow;
-        uiText.text = nameToShow;
+        uiText.text = LocalizationManager.instance.StringForKey(nameToShow);
 
         anim.SetTrigger("Show");
     }

@@ -15034,7 +15034,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.053000003}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 809.43384, y: -0.23596191}
+  m_AnchoredPosition: {x: 810.39185, y: -0.23596191}
   m_SizeDelta: {x: 0, y: 0.096221924}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &494032949
@@ -17386,6 +17386,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c5eca45ef297248ba32074478e4937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: {fileID: 742706815}
+  goldCoinsText: {fileID: 2135084673}
+  backButtonText: {fileID: 395336385}
+  finishButtonText: {fileID: 984094595}
   countText: {fileID: 1454341860}
 --- !u!95 &593957950
 Animator:
@@ -22665,7 +22669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.20156483, y: 0.88651294}
   m_AnchorMax: {x: 0.80317706, y: 1}
-  m_AnchoredPosition: {x: -5.0801544, y: 19.97998}
+  m_AnchoredPosition: {x: -5.080139, y: 19.979973}
   m_SizeDelta: {x: 7.9571533, y: 36.93315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &781899534
@@ -24470,7 +24474,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4742344, y: 0.29655862}
   m_AnchorMax: {x: 0.61818755, y: 0.35783985}
-  m_AnchoredPosition: {x: 0.20202637, y: 3.9501953}
+  m_AnchoredPosition: {x: 0.20202637, y: 3.9503174}
   m_SizeDelta: {x: 71.100006, y: 50.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &819661716
@@ -25021,6 +25025,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 868262959}
+  noButton_Text: {fileID: 1009598944}
+  yesButton_Text: {fileID: 230129370}
 --- !u!95 &827784888
 Animator:
   serializedVersion: 3
@@ -28254,6 +28260,8 @@ MonoBehaviour:
     disableSprite: {fileID: 21300000, guid: 1048023722dd60740b31c87027013560, type: 3}
     availableSprite: {fileID: 21300000, guid: 2fbc34881616f254f9e5da7cf40a53b0, type: 3}
   anim: {fileID: 0}
+  title: {fileID: 1628336894}
+  downPanelTitle: {fileID: 1023780682}
   levelText: {fileID: 919865638}
   levelValue: {fileID: 686406026}
   moneyText: {fileID: 1533854598}
@@ -28263,6 +28271,7 @@ MonoBehaviour:
   costText: {fileID: 1537230437}
   costValue: {fileID: 1029351341}
   upgradeButton: {fileID: 456037896}
+  upgradeButton_Text: {fileID: 284563109}
   upgreadeButtonParticleSystem: {fileID: 1791633246}
   scrollViewContent: {fileID: 494032948}
   itemOfListElementsToUnlockPrefab: {fileID: -7601490674532929887, guid: a455032fed6882940a723ce84d9b6b69,
@@ -29246,7 +29255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22981513, y: 0.30634767}
   m_AnchorMax: {x: 0.32700002, y: 0.351}
-  m_AnchoredPosition: {x: 0.5605469, y: 0.5}
+  m_AnchoredPosition: {x: 0.5605469, y: 0.5001221}
   m_SizeDelta: {x: 45.799988, y: 31.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &956898447
@@ -30985,10 +30994,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTasks: []
+  title: {fileID: 405134107}
   mainPanel: {fileID: 813048139}
   taskPrefab: {fileID: 5992593838239351397, guid: 2b9ed5ea5b9c7d0479196701a51b806d,
     type: 3}
   buildButton: {fileID: 1965885273}
+  buildButton_Text: {fileID: 1638551393}
 --- !u!95 &1008906839
 Animator:
   serializedVersion: 3
@@ -33696,7 +33707,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -3075.6082}
+  m_AnchoredPosition: {x: 0, y: -3072.21}
   m_SizeDelta: {x: 1536, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1084287715
@@ -40872,7 +40883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22981513, y: 0.30634767}
   m_AnchorMax: {x: 0.32700002, y: 0.351}
-  m_AnchoredPosition: {x: 0.5605469, y: 0.5}
+  m_AnchoredPosition: {x: 0.5605469, y: 0.5001221}
   m_SizeDelta: {x: 45.799988, y: 31.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1340332988
@@ -41952,7 +41963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4742344, y: 0.29655862}
   m_AnchorMax: {x: 0.61818755, y: 0.35783985}
-  m_AnchoredPosition: {x: 0.20202637, y: 3.9501953}
+  m_AnchoredPosition: {x: 0.20202637, y: 3.9503174}
   m_SizeDelta: {x: 71.100006, y: 50.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1371973095
@@ -44231,7 +44242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.14159276, y: 0.21900001}
   m_AnchorMax: {x: 0.92853403, y: 0.30436644}
-  m_AnchoredPosition: {x: 6.1835938, y: -1.5}
+  m_AnchoredPosition: {x: 6.1835938, y: -1.5000305}
   m_SizeDelta: {x: -11.730011, y: 10.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1441745110
@@ -48126,6 +48137,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Daily Rewards Landscape
       objectReference: {fileID: 0}
+    - target: {fileID: 100082, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -48170,68 +48185,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11400104, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: rewards.Array.data[0].sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c3a0fc9ee6d28014191a796a0501f5e3,
-        type: 3}
-    - target: {fileID: 11400104, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: rewards.Array.data[0].reward
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400104, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: rewards.Array.data[0].unit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400104, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: rewards.Array.data[1].unit
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400104, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: rewards.Array.data[1].reward
-      value: 1000000000
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400104, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: rewards.Array.data[1].sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3965eb98a382ae242b7ded3eb1c8fd65,
-        type: 3}
-    - target: {fileID: 11400104, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: rewards.Array.data[2].reward
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400104, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: rewards.Array.data[3].unit
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400104, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: rewards.Array.data[3].sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 654dd2fddbe4df440b96ce0968570cc9,
-        type: 3}
-    - target: {fileID: 11400104, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: rewards.Array.data[3].reward
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400104, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: rewards.Array.data[4].reward
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400104, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: rewards.Array.data[5].reward
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400104, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: rewards.Array.data[6].reward
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400104, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: rewards.Array.data[7].reward
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400024, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
+    - target: {fileID: 22400008, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -117.00012
       objectReference: {fileID: 0}
     - target: {fileID: 22400024, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -48243,16 +48199,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22400028, guid: aa48b2196cbbe06429a05f1614e2e9b2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6479188431311447522, guid: aa48b2196cbbe06429a05f1614e2e9b2,
-        type: 3}
-      propertyPath: m_BlocksRaycasts
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6479188431311447522, guid: aa48b2196cbbe06429a05f1614e2e9b2,
-        type: 3}
-      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -64418,8 +64364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 205c3ee69ccffa442b781bce090c3eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerOnButton: {fileID: 741667891}
-  dailyRewardButton: {fileID: 1876151549}
 --- !u!4 &1992277307
 Transform:
   m_ObjectHideFlags: 0
@@ -64480,6 +64424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd3a175c40ec2a4cb80a4fcd494e0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: {fileID: 1568979080}
   buildingMap:
   - {fileID: 1173237198}
   - {fileID: 33847452}
@@ -66133,7 +66078,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.046551805, y: 0.785459}
   m_AnchorMax: {x: 0.95785916, y: 0.91284186}
-  m_AnchoredPosition: {x: -1.0000305, y: 2.1776123}
+  m_AnchoredPosition: {x: -1.000061, y: 2.1776123}
   m_SizeDelta: {x: 4.0510254, y: 10.255676}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2075991114
@@ -66552,10 +66497,14 @@ MonoBehaviour:
   smallPanel: {fileID: 1671997089}
   smallTitle: {fileID: 2125393346}
   smallText: {fileID: 1756069110}
+  small_noButton_Text: {fileID: 1551753673}
+  small_yesButton_Text: {fileID: 548759995}
   bigPanel: {fileID: 1037208209}
   bigTitle: {fileID: 543498587}
   bigText_1: {fileID: 1761907880}
   bigText_2: {fileID: 4432992}
+  big_noButton_Text: {fileID: 1938121903}
+  big_yesButton_Text: {fileID: 767589875}
 --- !u!95 &2095985720
 Animator:
   serializedVersion: 3

@@ -13,6 +13,10 @@ public class UpgradeEachFloorPopup : MonoBehaviour
     private Slot slot;
 
     [SerializeField]
+    private Text title;
+    [SerializeField]
+    private Text downPanelTitle;
+    [SerializeField]
     private Text levelText;
     [SerializeField]
     private Text levelValue;
@@ -30,6 +34,8 @@ public class UpgradeEachFloorPopup : MonoBehaviour
     private Text costValue;
     [SerializeField]
     private Button upgradeButton;
+    [SerializeField]
+    private Text upgradeButton_Text;
     [SerializeField]
     private ParticleSystem upgreadeButtonParticleSystem;
 
@@ -108,6 +114,10 @@ public class UpgradeEachFloorPopup : MonoBehaviour
 
     private void SetUpTexts(int index)
     {
+        title.text = LocalizationManager.instance.StringForKey("UpgradeEachFloor_Title");
+        downPanelTitle.text = LocalizationManager.instance.StringForKey("UpgradeEachFloor_DownPanelTitle");
+        upgradeButton_Text.text = LocalizationManager.instance.StringForKey("UpgradeEachFloor_UpgradeButtonText");
+
         levelText.text = LocalizationManager.instance.StringForKey("UpgradeEachFloor_Level");
         moneyText.text = LocalizationManager.instance.StringForKey("UpgradeEachFloor_Money");
         profitText.text = LocalizationManager.instance.StringForKey("UpgradeEachFloor_Profit");

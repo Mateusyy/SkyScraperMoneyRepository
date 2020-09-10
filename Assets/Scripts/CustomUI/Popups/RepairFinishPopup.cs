@@ -6,6 +6,15 @@ using UnityEngine.UI;
 public class RepairFinishPopup : MonoBehaviour
 {
     private Animator anim;
+
+    [SerializeField]
+    private Text title;
+    [SerializeField]
+    private Text goldCoinsText;
+    [SerializeField]
+    private Text backButtonText;
+    [SerializeField]
+    private Text finishButtonText;
     [SerializeField]
     private Text countText;
 
@@ -37,6 +46,12 @@ public class RepairFinishPopup : MonoBehaviour
     {
         this.buySlotPanel = buySlotPanel;
         CountGoldCost(secondToEndCounting);
+
+        title.text = LocalizationManager.instance.StringForKey("FinishRepair_title");
+        goldCoinsText.text = LocalizationManager.instance.StringForKey("FinishRepair_goldCoinsText");
+        backButtonText.text = LocalizationManager.instance.StringForKey("FinishRepair_backButtonText");
+        finishButtonText.text = LocalizationManager.instance.StringForKey("FinishRepair_finishButtonText");
+
         anim.SetTrigger("Show");
     }
 

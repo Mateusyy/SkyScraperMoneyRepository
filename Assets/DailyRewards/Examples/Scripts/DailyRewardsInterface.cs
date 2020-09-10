@@ -21,6 +21,8 @@ namespace NiobiumStudios
 
         private Animator anim;
 
+        public Text title;
+
         [Header("Panel Debug")]
 		public bool isDebug;
         public GameObject panelDebug;
@@ -33,11 +35,15 @@ namespace NiobiumStudios
         public GameObject panelReward;              // Rewards panel
         public Text textReward;                     // Reward Text to show an explanatory message to the player
         public Button buttonCloseReward;            // The Button to close the Rewards Panel
+        public Text buttonCloseReward_Text;
         public Image imageReward;                   // The image of the reward
 
         [Header("Panel Reward")]
+        public Text rewardPanelTitle;
         public Button buttonClaim;                  // Claim Button
+        public Text buttonClaim_Text;
         public Button buttonClose;                  // Close Button
+        public Text buttonClose_Text;
         public Button buttonCloseWindow;            // Close Button on the upper right corner
         public Text textTimeDue;                    // Text showing how long until the next claim
         public GridLayoutGroup dailyRewardsGroup;   // The Grid that contains the rewards
@@ -164,6 +170,11 @@ namespace NiobiumStudios
         // Initializes the UI List based on the rewards size
         private void InitializeDailyRewardsUI()
         {
+            title.text = LocalizationManager.instance.StringForKey("DailyReward_Title");
+            buttonClaim_Text.text = LocalizationManager.instance.StringForKey("DailyReward_ButtonClaimText");
+            buttonClose_Text.text = LocalizationManager.instance.StringForKey("DailyReward_ButtonCloseText");
+            buttonCloseReward_Text.text = LocalizationManager.instance.StringForKey("DailyReward_ButtonCloseText");
+
             for (int i = 0; i < dailyRewards.rewards.Count; i++)
             {
                 int day = i + 1;
@@ -219,7 +230,8 @@ namespace NiobiumStudios
             if (isRewardAvailableNow)
             {
                 SnapToReward();
-                textTimeDue.text = "You can claim your reward!";
+                //textTimeDue.text = "You can claim your reward!";
+                textTimeDue.text = LocalizationManager.instance.StringForKey("DailyReward_PermissionToClaimReward");
             }
             readyToClaim = isRewardAvailableNow;
         }
@@ -272,7 +284,8 @@ namespace NiobiumStudios
 
                 string formattedTs = dailyRewards.GetFormattedTime(difference);
 
-                textTimeDue.text = string.Format("Come back in {0} for your next reward", formattedTs);
+                //textTimeDue.text = string.Format("Come back in {0} for your next reward", formattedTs);
+                textTimeDue.text = LocalizationManager.instance.StringForKey("DailyReward_TimerText_1") + "<color=#22EE11>" + formattedTs + "</color>" + LocalizationManager.instance.StringForKey("DailyReward_TimerText_2");
             }
         }
 
@@ -280,6 +293,7 @@ namespace NiobiumStudios
         private void OnClaimPrize(int day)
         {
             //panelReward.SetActive(true);
+            rewardPanelTitle.text = LocalizationManager.instance.StringForKey("DailyReward_RewardPanelTitle");
             ShowRewardPopup();
 
             var reward = dailyRewards.GetReward(day);
@@ -288,7 +302,8 @@ namespace NiobiumStudios
             imageReward.sprite = reward.sprite;
             if (rewardQt > 0)
             {
-                textReward.text = string.Format("You got {0} {1}!", reward.reward, unit.ToString().ToLower());
+                //textReward.text = string.Format("You got {0} {1}!", reward.reward, unit.ToString().ToLower());
+                textReward.text = LocalizationManager.instance.StringForKey("DailyReward_YouGotText") + NumberFormatter.ToString(reward.reward, false, false, true) + " " + LocalizationManager.instance.StringForKey("DailyReward_" + unit.ToString().ToLower()) + "!";
 
                 switch (unit)
                 {
@@ -304,7 +319,8 @@ namespace NiobiumStudios
             }
             else
             {
-                textReward.text = string.Format("You got {0}!", unit.ToString().ToLower());
+                //textReward.text = string.Format("You got {0}!", unit.ToString().ToLower());
+                textReward.text = LocalizationManager.instance.StringForKey("DailyReward_YouGotText") + unit.ToString().ToLower() + "!";
             }
         }
 

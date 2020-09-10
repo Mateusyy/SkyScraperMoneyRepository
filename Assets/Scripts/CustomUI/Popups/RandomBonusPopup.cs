@@ -10,6 +10,10 @@ public class RandomBonusPopup : MonoBehaviour
 {
     [SerializeField]
     private Text text;
+    [SerializeField]
+    private Text noButton_Text;
+    [SerializeField]
+    private Text yesButton_Text;
 
     private RandomBonusPopupStatus result = RandomBonusPopupStatus.NONE;
     private Animator anim;
@@ -42,6 +46,9 @@ public class RandomBonusPopup : MonoBehaviour
     private void SetText(string textTag, double value)
     {
         text.text = LocalizationManager.instance.StringForKey(textTag) + "<color=#22EE11>" + NumberFormatter.ToString(value, true, true) + "</color>?";
+
+        noButton_Text.text = LocalizationManager.instance.StringForKey("NoButtonText");
+        yesButton_Text.text = LocalizationManager.instance.StringForKey("YesButtonText");
     }
 
     IEnumerator ConfirmationLogic()

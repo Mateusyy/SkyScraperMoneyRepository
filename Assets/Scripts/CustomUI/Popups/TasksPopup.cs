@@ -13,11 +13,15 @@ public class TasksPopup : MonoBehaviour
     public List<TaskPanel> currentTasks = new List<TaskPanel>();
 
     [SerializeField]
+    private Text title;
+    [SerializeField]
     private GameObject mainPanel;
     [SerializeField]
     private TaskPanel taskPrefab;
     [SerializeField]
     private Button buildButton;
+    [SerializeField]
+    private Text buildButton_Text;
 
     private void Awake()
     {
@@ -30,6 +34,9 @@ public class TasksPopup : MonoBehaviour
         this.tasksManager = tasksManager;
         anim.SetTrigger("Show");
         isShowed = true;
+
+        title.text = LocalizationManager.instance.StringForKey("TasksPopup_Title");
+        buildButton_Text.text = LocalizationManager.instance.StringForKey("TasksPopup_buildButtonText");
 
         GenerateTaskGO();
 

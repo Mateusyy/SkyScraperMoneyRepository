@@ -32,6 +32,11 @@ public class BuySlotPanel : MonoBehaviour
     [SerializeField]
     private CanvasGroup finishRepairButton;
 
+    [SerializeField]
+    private Text PressToSpeedUpRenovationText;
+    [SerializeField]
+    private Text FloorRenovationText;
+
     private string _name;
     public int numberOfBuilding;
     public float timerToUnlock;
@@ -94,7 +99,11 @@ public class BuySlotPanel : MonoBehaviour
 
     public void RefreshLanguageBuySlotPanel()
     {
-        nameText.text = LocalizationManager.instance.StringForKey(_name.ToUpper());
+        string upperName = _name.ToUpper();
+        nameText.text = LocalizationManager.instance.StringForKey(upperName);
+
+        PressToSpeedUpRenovationText.text = LocalizationManager.instance.StringForKey("Renovation_pressToSpeedUp");
+        FloorRenovationText.text = LocalizationManager.instance.StringForKey("Renovation_floorRenovation");
     }
 
     private void OnDestroy()

@@ -46,7 +46,7 @@ public class UpgreadeData : ScriptableObject
 
             if (type == UpgreadeType.OnlyThisSlot)
             {
-                return LocalizationManager.instance.StringForKey("UpgradePanel_Value") + " " + correctSlotName + " x" + profitMultiplier;
+                return LocalizationManager.instance.StringForKey("UpgradePanel_Value") + " " + LocalizationManager.instance.StringForKey(correctSlotName.ToUpper()) + " x" + profitMultiplier;
             }
             else
             {

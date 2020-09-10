@@ -110,13 +110,13 @@ public class ItemOfListElementsToUnlock : MonoBehaviour
         gameObject.GetComponent<Image>().sprite = lockedPanelSprite;
 
         lockedPanel_LevelText.text = slot.GetMilestoneLevelTarget(index).ToString() + " lvl";
-        lockedPanel_ToUnlockText.text = "to unlock";
+        lockedPanel_ToUnlockText.text = LocalizationManager.instance.StringForKey("to_unlock_text");
     }
 
     private void SetLockedPanelPropertyWhenLevelWasReached(InteriorElement interiorElement)
     {
         lockedPanel_LevelText.text = NumberFormatter.ToString(interiorElement.price, false, true, false);
-        lockedPanel_ToUnlockText.text = "to buy";
+        lockedPanel_ToUnlockText.text = LocalizationManager.instance.StringForKey("to_buy_text");
 
         if(PlayerManager.instance.cash >= interiorElement.price)
         {
@@ -144,7 +144,7 @@ public class ItemOfListElementsToUnlock : MonoBehaviour
     {
         gameObject.GetComponent<Image>().sprite = availablePanelSprite;
 
-        availablePanel_NameText.text = interiorElement.name;
+        availablePanel_NameText.text = LocalizationManager.instance.StringForKey(interiorElement.name);
         if(interiorElement.symbol == null)
             availablePanel_IconOfProfit.sprite = interiorElement.GetComponent<SpriteRenderer>().sprite;
         else

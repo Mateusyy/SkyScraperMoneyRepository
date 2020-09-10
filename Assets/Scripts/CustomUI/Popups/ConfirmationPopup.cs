@@ -15,6 +15,11 @@ public class ConfirmationPopup : MonoBehaviour
     private Text smallTitle;
     [SerializeField]
     private Text smallText;
+    [SerializeField]
+    private Text small_noButton_Text;
+    [SerializeField]
+    private Text small_yesButton_Text;
+
     [Header("Big Panel Prop")]
     [SerializeField]
     private CanvasGroup bigPanel;
@@ -24,6 +29,10 @@ public class ConfirmationPopup : MonoBehaviour
     private Text bigText_1;
     [SerializeField]
     private Text bigText_2;
+    [SerializeField]
+    private Text big_noButton_Text;
+    [SerializeField]
+    private Text big_yesButton_Text;
 
     private ConfirmationPopupStatus result = ConfirmationPopupStatus.NONE;
     private Animator anim;
@@ -51,6 +60,12 @@ public class ConfirmationPopup : MonoBehaviour
 
         TurnCorrectPanel(indexOfPanel);
         SetText(textTag, indexOfPanel);
+
+        small_noButton_Text.text = LocalizationManager.instance.StringForKey("NoButtonText");
+        small_yesButton_Text.text = LocalizationManager.instance.StringForKey("YesButtonText");
+        big_noButton_Text.text = LocalizationManager.instance.StringForKey("NoButtonText");
+        big_yesButton_Text.text = LocalizationManager.instance.StringForKey("YesButtonText");
+
         Show();
 
         yield return StartCoroutine(ConfirmationLogic());

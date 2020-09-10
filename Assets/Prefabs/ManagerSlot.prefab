@@ -1122,10 +1122,10 @@ RectTransform:
   m_Father: {fileID: 2590030594668586880}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.26000002, y: 0.34}
-  m_AnchorMax: {x: 0.67826384, y: 0.7714546}
-  m_AnchoredPosition: {x: -51.3, y: 1.5}
-  m_SizeDelta: {x: -2.4099998, y: -4.3}
+  m_AnchorMin: {x: 0.20989063, y: 0.34}
+  m_AnchorMax: {x: 0.67826384, y: 0.73518187}
+  m_AnchoredPosition: {x: -25.299988, y: 1.4000015}
+  m_SizeDelta: {x: -54.410004, y: -4.525299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384687366366148112
 CanvasRenderer:
@@ -1167,7 +1167,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hair-Dresser -80%
+  m_Text: LABORATORIUM -80% KOSZTY
 --- !u!114 &4059458796063077480
 MonoBehaviour:
   m_ObjectHideFlags: 0

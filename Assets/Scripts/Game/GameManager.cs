@@ -242,8 +242,11 @@ public class GameManager : MonoBehaviour
             IsFirstTimeAnimator();
             SettingsGame.instance.FirstTimeSetter(false);
         }
+        else
+        {
+            dailyRewardsPopup.ShowPopup();
+        }
 
-        dailyRewardsPopup.ShowPopup();
         float offlineEarning = PlayerManager.instance.DetermineEarningSinceLastPlay();
         if (enteredGameNow == true && offlineEarning > 0)
         {

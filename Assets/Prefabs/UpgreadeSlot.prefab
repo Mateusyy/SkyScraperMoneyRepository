@@ -415,10 +415,10 @@ RectTransform:
   m_Father: {fileID: 2127990173782214697}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2616597, y: 0.317}
-  m_AnchorMax: {x: 0.6964514, y: 0.74600005}
-  m_AnchoredPosition: {x: -73.12301, y: 1.7561989}
-  m_SizeDelta: {x: -2.7999992, y: -3.3129997}
+  m_AnchorMin: {x: 0.23400001, y: 0.36800003}
+  m_AnchorMax: {x: 0.6964514, y: 0.7094546}
+  m_AnchoredPosition: {x: -36.9, y: -0.24380112}
+  m_SizeDelta: {x: -75.30582, y: 1.2154388}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2127990173314189367
 CanvasRenderer:
@@ -453,14 +453,14 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 50
     m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "Warto\u015B\u0107 Icecream 3x"
 --- !u!114 &5570809898698654150
 MonoBehaviour:
   m_ObjectHideFlags: 0

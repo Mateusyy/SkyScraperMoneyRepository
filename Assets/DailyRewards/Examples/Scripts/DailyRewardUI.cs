@@ -63,7 +63,8 @@ namespace NiobiumStudios
 
         public void Initialize()
         {
-            textDay.text = string.Format("Day {0}", day.ToString());
+            //textDay.text = string.Format("Day {0}", day.ToString());
+            textDay.text = LocalizationManager.instance.StringForKey("DailyReward_UIElementDayText") + day.ToString();
             if (reward.reward > 0)
             {
                 if (showRewardName)

@@ -39,11 +39,11 @@ public class ManagerData : ScriptableObject
 
             if(type == ManagerType.AutoSlot)
             {
-                return LocalizationManager.instance.StringForKey("ManagerData_Runs") + " " + correctSlotName;
+                return LocalizationManager.instance.StringForKey("ManagerData_Runs") + " " + LocalizationManager.instance.StringForKey(correctSlotName.ToUpper());
             }
             else
             {
-                return correctSlotName + " " + LocalizationManager.instance.StringForKey("ManagerData_Discount") + " -" + costReductionMultiplier * 100 + "%"; 
+                return LocalizationManager.instance.StringForKey(correctSlotName.ToUpper()) + " " + LocalizationManager.instance.StringForKey("ManagerData_Discount") + " -" + costReductionMultiplier * 100 + "%"; 
             }
         }
     }
