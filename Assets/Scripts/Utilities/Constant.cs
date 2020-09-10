@@ -6,7 +6,8 @@ public class Constant : MonoBehaviour
 {
     //public static float CONTRACT_TARGET_CONST = 10.0f;    //test value
     public static float CONTRACT_TARGET_CONST = 1000000000.0f;    
-    public static float msToBoosterWait = 900000.0f;
+    public static float msToBoosterWait = 900000.0f;    //15 min
+    public static float msToDailyReward = 86400000.0f;  //24h
     public static float percentageContractValue = 1.2f; //120%
 
     public static readonly string[] BULK_UPGREADE_OPTIONS = { "x1", "x5", "x10", "MAX" };

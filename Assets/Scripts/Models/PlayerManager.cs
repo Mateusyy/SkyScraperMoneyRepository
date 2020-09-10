@@ -31,6 +31,7 @@ public class PlayerManager
     public UnityADSManager.BoosterType boosterType;
 
     public ulong lastBoosterStartDateTime;
+    public ulong lastTimerStartUpdateForDailyReward;
     public bool isBooster = false;
     public bool isNotification = true; 
 

@@ -53,7 +53,7 @@ public class FirebaseInit : MonoBehaviour
                     if (!string.IsNullOrEmpty(authCode))
                     {
                         //infoText.text += "auth _1\n";
-                        FirebaseAuthenticate();
+                        //FirebaseAuthenticate();
                     }
                     else
                     {
@@ -73,7 +73,7 @@ public class FirebaseInit : MonoBehaviour
             if (!string.IsNullOrEmpty(authCode))
             {
                 //infoText.text += "auth _2\n";
-                FirebaseAuthenticate();
+                //FirebaseAuthenticate();
             }
             else
             {

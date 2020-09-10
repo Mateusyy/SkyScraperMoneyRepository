@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
+using NiobiumStudios;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,6 +39,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private MapPopup mapPopup;
+
+    [SerializeField]
+    private DailyRewardsInterface dailyRewardsPopup;
 
     [SerializeField]
     private UpgradeEachFloorPopup upgradeEachFloorPopup;
@@ -239,8 +243,8 @@ public class GameManager : MonoBehaviour
             SettingsGame.instance.FirstTimeSetter(false);
         }
 
+        dailyRewardsPopup.ShowPopup();
         float offlineEarning = PlayerManager.instance.DetermineEarningSinceLastPlay();
-        Debug.Log("After determine in pause");
         if (enteredGameNow == true && offlineEarning > 0)
         {
             offlineEarningPopup.Initialize(offlineEarning);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NiobiumStudios;
+using System;
 using Unity.Notifications.Android;
 using UnityEngine;
 
@@ -17,6 +18,13 @@ public class MobileNotificationManager : MonoBehaviour
 
     public const string retention_smallIconName = "small_icon_retention";
     public const string retention_largeIconName = "large_icon_retention";
+
+    private DailyRewards dailyRewards;
+
+    private void Awake()
+    {
+        dailyRewards = FindObjectOfType<DailyRewards>();
+    }
 
     void Start()
     {
@@ -65,6 +73,8 @@ public class MobileNotificationManager : MonoBehaviour
         RetentionReminderNotification(129600);
         RetentionReminderNotification(302400);
         RetentionReminderNotification(1296000);
+
+        DailyRewardNotification();
     }
 
     public void CreateNotification(string title, string mainText, DateTime timeToFireNotification, string smallIcon = default_smallIconName, string largeIcon = default_largeIconName)
@@ -106,13 +116,15 @@ public class MobileNotificationManager : MonoBehaviour
             );
     }
 
-    public void TestNotification()
+    public void DailyRewardNotification()
     {
+        TimeSpan difference = dailyRewards.GetTimeDifference();
+
         CreateNotification
             (
-                "TEST!",
-                string.Concat("TEST"),
-                DateTime.UtcNow.AddSeconds(10),
+                "Reward for you!",
+                string.Concat("It is your next day! Come in and claim your reward!"),
+                DateTime.UtcNow.AddSeconds(difference.TotalSeconds),
                 retention_smallIconName,
                 retention_largeIconName
             );
