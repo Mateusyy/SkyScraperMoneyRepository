@@ -708,12 +708,6 @@ public class GameManager : MonoBehaviour
 
     public void OnShowManagersPopupButtonPressed()
     {
-        //showAd
-        if (UnityEngine.Random.Range(1, 10) < 0)
-        {
-            UnityADSManager.instance.ShowBottomAdvert();
-        }
-
         CanvasGroup mainCanvasGroup = managersPopup.GetComponent<CanvasGroup>();
         mainCanvasGroup.interactable = false;
         mainCanvasGroup.blocksRaycasts = false;
@@ -724,24 +718,12 @@ public class GameManager : MonoBehaviour
 
     public void OnShowOfficePopupButtonPressed()
     {
-        //showAd
-        if (UnityEngine.Random.Range(1, 10) < 0)
-        {
-            UnityADSManager.instance.ShowBottomAdvert();
-        }
-
         officePopup.Display();
         FindObjectOfType<OpenCloseAudioSource>().PlaySound();
     }
 
     public void OnShowUpgreadePopupButtonPressed()
     {
-        //showAd
-        if (UnityEngine.Random.Range(1, 10) < 0)
-        {
-            UnityADSManager.instance.ShowBottomAdvert();
-        }
-
         CanvasGroup mainCanvasGroup = upgreadePopup.GetComponent<CanvasGroup>();
         mainCanvasGroup.interactable = false;
         mainCanvasGroup.blocksRaycasts = false;

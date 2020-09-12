@@ -3,7 +3,6 @@ using Firebase.Analytics;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class FirebaseInit : MonoBehaviour
 {
@@ -11,18 +10,20 @@ public class FirebaseInit : MonoBehaviour
     public string authCode = string.Empty;
     public Firebase.Auth.FirebaseUser user;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     private void Start()
     {
-        ///infoText.text = "START\n";
-        //infoText.color = Color.black;
-
         //Firebase Analitics
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
             if (task.IsCompleted)
             {
-                //infoText.text += "Analitics is on\n";
+                
             }
         });
 
@@ -68,18 +69,13 @@ public class FirebaseInit : MonoBehaviour
         }
         else
         {
-            authCode = PlayGamesPlatform.Instance.GetServerAuthCode();
 
-            if (!string.IsNullOrEmpty(authCode))
-            {
-                //infoText.text += "auth _2\n";
-                //FirebaseAuthenticate();
-            }
-            else
-            {
-                //infoText.text += "auth is nullOrEmpty_2\n";
-            }
         }
+    }
+
+    public static void RegisterEvent(string name, string parameter, int valueOfParameter)
+    {
+        FirebaseAnalytics.LogEvent(name, parameter, valueOfParameter);
     }
 
     private void FirebaseAuthenticate()

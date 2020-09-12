@@ -1,2 +1,2 @@
--keep class com.google.games.** { _; } 
--keep interface com.google.games._* { *; }
+-keep class com.google.unity.** { *; }
+-keep class com.google.android.gms.ads.** { *; }

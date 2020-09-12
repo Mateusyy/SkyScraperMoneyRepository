@@ -166,6 +166,7 @@ public class BuySlotPanel : MonoBehaviour
                     SetUpSecondLeft();
                     SetUpUnlockingIsActive();
                     GameManager.instance.OnBuySlotButtonUnlockPressed(index);
+                    FirebaseInit.RegisterEvent("UncoveredFloor", "FloorIndex", index);
                 });
 
                 shoudAddFunctionForUnlockButton = false;
