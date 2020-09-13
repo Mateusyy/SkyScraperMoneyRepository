@@ -41,9 +41,18 @@ public class UnityADSManager : MonoBehaviour//, IUnityAdsListener
 
     private void Start()
     {
-        MobileAds.Initialize(initStatus => { });
+        List<string> deviceIds = new List<string>();
+        deviceIds.Add("5ED557A5AF39EFAE351F90661FACB3CD");
 
-        this.rewardedAd = new RewardedAd("ca-app-pub-3940256099942544/5224354917");
+        RequestConfiguration requestConfiguration = new RequestConfiguration
+            .Builder()
+            .SetTestDeviceIds(deviceIds)
+            .build();
+
+        MobileAds.Initialize(initStatus => { });
+        MobileAds.SetRequestConfiguration(requestConfiguration);
+        
+        this.rewardedAd = new RewardedAd("ca-app-pub-1822284172999308/7197718228");
 
         // Called when an ad request has successfully loaded.
         this.rewardedAd.OnAdLoaded += HandleRewardedAdLoaded;
@@ -58,17 +67,15 @@ public class UnityADSManager : MonoBehaviour//, IUnityAdsListener
         // Called when the ad is closed.
         this.rewardedAd.OnAdClosed += HandleRewardedAdClosed;
 
-
-        // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
-        // Load the rewarded ad with the request.
+
         this.rewardedAd.LoadAd(request);
     }
 
     public void CreateAndLoadRewardedAd()
     {
 #if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-3940256099942544/5224354917";
+        string adUnitId = "ca-app-pub-1822284172999308/7197718228";
 #elif UNITY_IPHONE
             string adUnitId = "ca-app-pub-3940256099942544/1712485313";
 #else
