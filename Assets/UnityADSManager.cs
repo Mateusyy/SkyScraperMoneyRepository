@@ -8,6 +8,7 @@ using GoogleMobileAds.Api;
 using GoogleMobileAds.Api.Mediation.UnityAds;
 
 using System;
+using Firebase.Analytics;
 
 public class UnityADSManager : MonoBehaviour//, IUnityAdsListener
 {
@@ -154,6 +155,7 @@ public class UnityADSManager : MonoBehaviour//, IUnityAdsListener
         GameManager.pauseBeacuseADS = true;
         PlayerManager.instance.boosterType = boosterType;
 
+        FirebaseAnalytics.LogEvent("Rewarded_Video_Started", new Parameter("booster_type", boosterType.ToString()));
         if (this.rewardedAd.IsLoaded())
         {
             this.rewardedAd.Show();
