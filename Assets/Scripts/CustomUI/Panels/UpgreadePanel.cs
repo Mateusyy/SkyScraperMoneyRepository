@@ -64,7 +64,7 @@ public class UpgreadePanel : MonoBehaviour
             nameText.color = GameColors.managerOrUpgradeSlot_TitleColor_v2;
         }
 
-        image.sprite = data.image;
+        //image.sprite = data.image;
         nameText.text = data.name;
         symbolOfSlotImage.sprite = GameManager.instance.slotPanelSymbols[index % 10];
         descriptionText.text = data.description;

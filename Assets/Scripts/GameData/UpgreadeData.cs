@@ -6,7 +6,6 @@ using UnityEngine.Assertions;
 [CreateAssetMenu(fileName ="UpgreadeData", menuName ="Game Data/Upgreade Data", order =1)]
 public class UpgreadeData : ScriptableObject
 {
-    public Sprite image;
     public int numberOfBuilding;
 
     [SerializeField]
@@ -25,7 +24,6 @@ public class UpgreadeData : ScriptableObject
 
     private void OnValidate()
     {
-        Assert.IsNotNull(image);
         Assert.IsTrue(nameKey != "");
         Assert.IsTrue(profitMultiplier > 0);
         Assert.IsTrue(cost > 0);

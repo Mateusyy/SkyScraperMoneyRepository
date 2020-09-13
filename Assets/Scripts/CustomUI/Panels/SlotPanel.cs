@@ -191,9 +191,14 @@ public class SlotPanel : MonoBehaviour
         if (slot.shouldShowCashPerSecond)
         {
             if (slot.timeToProduce >= 0.16f)
+            {
                 progressBarFill.fillAmount = slot.unitCompletePercentage;
+            }
             else
-                progressBarFill.fillAmount = 1; //no fill
+            {
+                //Debug.Log("NO FILL!");
+                //progressBarFill.fillAmount = 1; //no fill
+            }
 
             profitText.text = string.Format("${0}/{1}", NumberFormatter.ToString(number: slot.profit * 1 / slot.timeToProduce, showDecimalPlaces: true, showDollarSign: false), "s");
         }
@@ -201,16 +206,22 @@ public class SlotPanel : MonoBehaviour
         {
             if (PlayerManager.instance.HasBoughtManager(slot.index))
             {
-                if (slot.timeToProduce >= 0.17f)
+                if (slot.timeToProduce >= 0.25f)
+                {
                     progressBarFill.fillAmount = slot.unitCompletePercentage;
+                    profitText.text = NumberFormatter.ToString(number: slot.profit, showDecimalPlaces: true);
+                }
                 else
+                {
+                    profitText.text = NumberFormatter.ToString(number: slot.cashPerSecond, showDecimalPlaces: false, true, false) + " /s";
                     progressBarFill.fillAmount = 1; //no fill
+                }
             }
             else
             {
                 progressBarFill.fillAmount = slot.unitCompletePercentage;
+                profitText.text = NumberFormatter.ToString(number: slot.profit, showDecimalPlaces: true);
             }
-            profitText.text = NumberFormatter.ToString(number: slot.profit, showDecimalPlaces: true);
         }
 
         //counter

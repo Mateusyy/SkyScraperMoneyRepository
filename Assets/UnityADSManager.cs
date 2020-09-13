@@ -54,17 +54,11 @@ public class UnityADSManager : MonoBehaviour//, IUnityAdsListener
         
         this.rewardedAd = new RewardedAd("ca-app-pub-1822284172999308/7197718228");
 
-        // Called when an ad request has successfully loaded.
         this.rewardedAd.OnAdLoaded += HandleRewardedAdLoaded;
-        // Called when an ad request failed to load.
         this.rewardedAd.OnAdFailedToLoad += HandleRewardedAdFailedToLoad;
-        // Called when an ad is shown.
         this.rewardedAd.OnAdOpening += HandleRewardedAdOpening;
-        // Called when an ad request failed to show.
         this.rewardedAd.OnAdFailedToShow += HandleRewardedAdFailedToShow;
-        // Called when the user should be rewarded for interacting with the ad.
         this.rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
-        // Called when the ad is closed.
         this.rewardedAd.OnAdClosed += HandleRewardedAdClosed;
 
         AdRequest request = new AdRequest.Builder().Build();
@@ -125,29 +119,33 @@ public class UnityADSManager : MonoBehaviour//, IUnityAdsListener
 
     public void HandleUserEarnedReward(object sender, Reward args)
     {
-        if (PlayerManager.instance.boosterType == BoosterType.x2 && !PlayerManager.instance.isBooster)
+        switch (PlayerManager.instance.boosterType)
         {
-            GameManager.instance.BoosterX2_ActionAfterFinishedAdvert();
-        }
+            case BoosterType.x2:
+                if (!PlayerManager.instance.isBooster)
+                    GameManager.instance.BoosterX2_ActionAfterFinishedAdvert();
+                break;
 
-        if (PlayerManager.instance.boosterType == BoosterType.extraCash)
-        {
-            GameManager.instance.BoosterExtraCash_ActionAfterFinishedAdvert();
-        }
+            case BoosterType.extraCash:
+                GameManager.instance.BoosterExtraCash_ActionAfterFinishedAdvert();
+                break;
 
-        if (PlayerManager.instance.boosterType == BoosterType.doubleOfflineEarning)
-        {
-            GameManager.instance.DoubleOfflineEarning_ActionAfterFinishedAdvert();
-        }
+            case BoosterType.doubleOfflineEarning:
+                GameManager.instance.DoubleOfflineEarning_ActionAfterFinishedAdvert();
+                break;
 
-        if (PlayerManager.instance.boosterType == BoosterType.randomBonus)
-        {
-            GameManager.instance.RandomBonus_ActionAfterFinishedAdvert();
-        }
+            case BoosterType.randomBonus:
+                GameManager.instance.RandomBonus_ActionAfterFinishedAdvert();
+                break;
 
-        if (PlayerManager.instance.boosterType == BoosterType.cutTimerToUnlockSlot)
-        {
-            GameManager.instance.CutTimerToUnlockSlot_ActionAfterFinishedAdvert(indexOfSlotForBenefits);
+            case BoosterType.cutTimerToUnlockSlot:
+                GameManager.instance.CutTimerToUnlockSlot_ActionAfterFinishedAdvert(indexOfSlotForBenefits);
+                break;
+
+            case BoosterType.none:
+                break;
+            default:
+                break;
         }
     }
 
@@ -161,101 +159,4 @@ public class UnityADSManager : MonoBehaviour//, IUnityAdsListener
             this.rewardedAd.Show();
         }
     }
-
-
-    /*string gameId = "3578618";
-
-    public string myPlacementId_rewardedVideo = "VideoBooster_x2";
-    public string myPlacementId_doubleOfflineEarning = "DoubleOfflineEarning";
-    public string myPlacementId_openOnesOfBottomPanel = "OpenOnesBottomPanel";
-
-    public int indexOfSlotForBenefits;
-
-    private void Start()
-    {
-        if (Application.platform == RuntimePlatform.IPhonePlayer)
-            gameId = "3469387";
-
-        if (Application.platform == RuntimePlatform.Android)
-            gameId = "3578618";
-
-        Advertisement.AddListener(this);
-        Advertisement.Initialize(gameId, false);
-    }
-
-    public void ShowRewardedVideo(BoosterType boosterType)
-    {
-        GameManager.pauseBeacuseADS = true;
-
-        PlayerManager.instance.boosterType = boosterType;
-        Advertisement.Show(myPlacementId_rewardedVideo);
-    }
-
-    public void ShowBottomAdvert()
-    {
-        Advertisement.Show();
-    }
-
-    public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
-    {
-        if (showResult == ShowResult.Finished)
-        {
-            if(PlayerManager.instance.boosterType == BoosterType.x2 && 
-                placementId == myPlacementId_rewardedVideo && 
-                !PlayerManager.instance.isBooster)
-            {
-                GameManager.instance.BoosterX2_ActionAfterFinishedAdvert();
-            }
-
-            if (PlayerManager.instance.boosterType == BoosterType.extraCash &&
-                placementId == myPlacementId_rewardedVideo)
-            {
-                GameManager.instance.BoosterExtraCash_ActionAfterFinishedAdvert();
-            }
-
-            if(PlayerManager.instance.boosterType == BoosterType.doubleOfflineEarning &&
-                placementId == myPlacementId_rewardedVideo)
-            {
-                GameManager.instance.DoubleOfflineEarning_ActionAfterFinishedAdvert();
-            }
-
-            if (PlayerManager.instance.boosterType == BoosterType.randomBonus &&
-                placementId == myPlacementId_rewardedVideo)
-            {
-                GameManager.instance.RandomBonus_ActionAfterFinishedAdvert();
-            }
-
-            if (PlayerManager.instance.boosterType == BoosterType.cutTimerToUnlockSlot &&
-                placementId == myPlacementId_rewardedVideo)
-            {
-                GameManager.instance.CutTimerToUnlockSlot_ActionAfterFinishedAdvert(indexOfSlotForBenefits);
-            }
-        }
-        else if (showResult == ShowResult.Skipped)
-        {
-            //
-        }
-        else if (showResult == ShowResult.Failed)
-        {
-            Debug.LogWarning("The ad did not finish due to an error.");
-        }
-    }
-
-    public void OnUnityAdsDidError(string message)
-    {
-        //throw new System.NotImplementedException();
-    }
-
-    public void OnUnityAdsDidStart(string placementId)
-    {
-        //throw new System.NotImplementedException();
-    }
-
-    public void OnUnityAdsReady(string placementId)
-    {
-        if (placementId == myPlacementId_rewardedVideo)
-        {
-            //myButton.interactable = true;
-        }
-    }*/
 }
