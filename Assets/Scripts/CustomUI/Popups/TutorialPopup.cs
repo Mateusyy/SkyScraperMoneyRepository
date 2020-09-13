@@ -37,12 +37,14 @@ public class TutorialPopup : MonoBehaviour
         {
             //end tutorial
             gameObject.SetActive(false);
+            FirebaseInit.RegisterEvent("FinishTutorial", "Value", 1);
         }
     }
 
     public void StartFirstTutorial()
     {
         anim.SetTrigger("PlayFirstTutorial");
+        FirebaseInit.RegisterEvent("StartTutorial", "Value", 1);
     }
 
     public void UpdateTextWithBigPanel()

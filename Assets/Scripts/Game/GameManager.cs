@@ -180,6 +180,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Start()
     {
+        FirebaseInit.RegisterEvent("LoadGame", "Value", 1);
+
         //PlayerManager.Create();
         DataManager.Verify();
 
