@@ -54,6 +54,12 @@ public class UpgradeEachFloorPopup : MonoBehaviour
 
     public void Show(Slot slot, InteriorPanel interior)
     {
+        if(PlayerPrefs.GetInt("TutorialUpgradeEachFloor") != 1)
+        {
+            FindObjectOfType<TutorialManager>().PlayTutorialStep(2);
+            PlayerPrefs.SetInt("TutorialUpgradeEachFloor", 1);
+        }
+
         this.slot = slot;
 
         SetUpButton();

@@ -33,10 +33,10 @@ public class IntegrationDailyRewards : MonoBehaviour
         print(myReward.unit);   // This is your reward Unit name
         print(myReward.reward); // This is your reward count
 
-		var rewardsCount = PlayerPrefs.GetInt ("MY_REWARD_KEY", 0);
+		var rewardsCount = PlayerPrefs.GetFloat ("MY_REWARD_KEY", 0);
 		rewardsCount += myReward.reward;
 
-		PlayerPrefs.SetInt ("MY_REWARD_KEY", rewardsCount);
+		PlayerPrefs.SetFloat ("MY_REWARD_KEY", rewardsCount);
 		PlayerPrefs.Save ();
     }
 }

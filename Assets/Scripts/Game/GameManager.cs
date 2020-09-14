@@ -246,7 +246,10 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            dailyRewardsPopup.ShowPopup();
+            if (dailyRewardsPopup.shouldShowPopup)
+            {
+                dailyRewardsPopup.ShowPopup();
+            }
         }
 
         float offlineEarning = PlayerManager.instance.DetermineEarningSinceLastPlay();

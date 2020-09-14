@@ -51,10 +51,11 @@ public class UpgreadePopup : MonoBehaviour
             }
         }
 
-        //CanvasGroup mainCanvasGroup = GetComponent<CanvasGroup>();
-        //mainCanvasGroup.interactable = true;
-        //mainCanvasGroup.blocksRaycasts = true;
-        //mainCanvasGroup.alpha = 1f;
+        if (PlayerPrefs.GetInt("UpgradesPopup") != 1)
+        {
+            FindObjectOfType<TutorialManager>().PlayTutorialStep(6);
+            PlayerPrefs.SetInt("UpgradesPopup", 1);
+        }
         animator.SetTrigger("Show");
     }
 

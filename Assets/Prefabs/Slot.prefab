@@ -618,7 +618,6 @@ MonoBehaviour:
   upgreadeCostText: {fileID: 7657241705505672109}
   timeText: {fileID: 6465368550030890642}
   counter: {fileID: 4463779072747342579}
-  upgreadeButtonParticleSystem: {fileID: 2206043229468077692}
   adBoosterImage: {fileID: 1258526437926695771}
   tapToSpeedUpText: {fileID: 91562093299679000}
   tapToSpeedUpDialog: {fileID: 9004590254265288429}
@@ -626,6 +625,9 @@ MonoBehaviour:
   speedUpEffect: {fileID: 850295167492213137}
   managerIcon: {fileID: 8536336641273392194}
   upgradeArrow: {fileID: 1270564373977383640}
+  slot:
+    bulkLevelUpIndex: 0
+    currentCostValue: 0
   slotImageBackgroundGO: {fileID: 2589058355007641272}
   numberOfBuilding: 0
   slotLevel: 0

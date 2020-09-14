@@ -53,6 +53,12 @@ public class ManagersPopup : MonoBehaviour
             }
         }
 
+        if (PlayerPrefs.GetInt("ManagersPopup") != 1)
+        {
+            FindObjectOfType<TutorialManager>().PlayTutorialStep(3);
+            PlayerPrefs.SetInt("ManagersPopup", 1);
+        }
+
         animator.SetTrigger("Show");
     }
 

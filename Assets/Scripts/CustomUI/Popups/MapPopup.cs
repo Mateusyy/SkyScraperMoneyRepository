@@ -38,6 +38,12 @@ public class MapPopup : MonoBehaviour
 
     public void ShowPopup()
     {
+        if (PlayerPrefs.GetInt("MapPopup") != 1)
+        {
+            FindObjectOfType<TutorialManager>().PlayTutorialStep(5);
+            PlayerPrefs.SetInt("MapPopup", 1);
+        }
+
         LoadInformationsAboutBuildings();
         animator.SetTrigger("Show");
     }

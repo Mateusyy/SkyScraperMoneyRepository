@@ -17,7 +17,7 @@ namespace NiobiumStudios
     public class Reward
     {
         public dailyRewardUnit unit;
-        public int reward;
+        public float reward;
         public Sprite sprite;
     }
 }

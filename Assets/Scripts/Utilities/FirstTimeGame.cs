@@ -7,7 +7,9 @@ public class FirstTimeGame : MonoBehaviour
     public void ActionAfterFirstTimeAnimation()
     {
         GameManager.instance.InitAfterFirstTimeAnimation();
-        GameManager.instance.tutorialPopup.SetActive(true);
-        FindObjectOfType<TutorialPopup>().StartFirstTutorial();
+        //GameManager.instance.tutorialPopup.SetActive(true);
+        //FindObjectOfType<TutorialPopup>().StartFirstTutorial();
+
+        FindObjectOfType<TutorialManager>().PlayTutorialStep(0);
     }
 }

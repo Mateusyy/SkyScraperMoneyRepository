@@ -65,6 +65,12 @@ public class OfficePopup : MonoBehaviour
         levelPriceText.text = "$" + NumberFormatter.ToString(PlayerManager.instance.contractPrice, true, false);
         contractButtonText.text = LocalizationManager.instance.StringForKey("blockyButtonText");
 
+        if (PlayerPrefs.GetInt("OfficePopup") != 1)
+        {
+            FindObjectOfType<TutorialManager>().PlayTutorialStep(4);
+            PlayerPrefs.SetInt("OfficePopup", 1);
+        }
+
         animator.SetTrigger("Show");
         isShow = true;
     }

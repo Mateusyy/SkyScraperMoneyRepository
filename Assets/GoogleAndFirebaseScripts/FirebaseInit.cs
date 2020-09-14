@@ -23,7 +23,7 @@ public class FirebaseInit : MonoBehaviour
             FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
             if (task.IsCompleted)
             {
-                
+
             }
         });
 

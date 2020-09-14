@@ -244,13 +244,14 @@ namespace NiobiumStudios
             var lastRewardIdx = dailyRewards.lastReward;
 
             // Scrolls to the last reward element
-            if (dailyRewardsUI.Count - 1 < lastRewardIdx)
+            if (dailyRewardsUI.Count < lastRewardIdx)
                 lastRewardIdx++;
 
-			if(lastRewardIdx > dailyRewardsUI.Count - 1)
+			if(lastRewardIdx > dailyRewardsUI.Count)
 				lastRewardIdx = dailyRewardsUI.Count - 1;
 
             var target = dailyRewardsUI[lastRewardIdx].GetComponent<RectTransform>();
+            Debug.LogError("lasRewardIdx: " + lastRewardIdx + " || " + "dailyRewardUi.Count: " + dailyRewardsUI.Count);
 
             var content = scrollRect.content;
 
@@ -287,6 +288,11 @@ namespace NiobiumStudios
                 //textTimeDue.text = string.Format("Come back in {0} for your next reward", formattedTs);
                 textTimeDue.text = LocalizationManager.instance.StringForKey("DailyReward_TimerText_1") + "<color=#22EE11>" + formattedTs + "</color>" + LocalizationManager.instance.StringForKey("DailyReward_TimerText_2");
             }
+        }
+
+        public bool shouldShowPopup
+        {
+            get { return dailyRewards.GetTimeDifference().TotalSeconds <= 0 ? true : false; }
         }
 
         // Delegate
