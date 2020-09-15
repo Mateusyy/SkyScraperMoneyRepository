@@ -68,11 +68,13 @@ public class SlotPanel : MonoBehaviour
             if (slot.index <= interiors.Count - 1)
             {
                 interior = Instantiate(interiors[slot.index], this.transform).GetComponent<InteriorPanel>();
+                interior.transform.SetSiblingIndex(1);
                 interior.Initialize(slot);
             }
             else
             {
                 interior = Instantiate(interiors[slot.index % 10], this.transform).GetComponent<InteriorPanel>();
+                interior.transform.SetSiblingIndex(1);
                 interior.Initialize(slot);
             }
         }

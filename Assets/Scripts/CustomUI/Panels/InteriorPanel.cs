@@ -11,6 +11,7 @@ public class InteriorPanel : MonoBehaviour
     {
         for (int i = 0; i < interiorObjects.Count; i++)
         {
+            interiorObjects[i].Initialize(slot, i);
             GeneratePrice(interiorObjects[i], slot, i);
 
             if (slot.GetInformationsAboutObjectToUnlock(i))
@@ -23,10 +24,12 @@ public class InteriorPanel : MonoBehaviour
                 if (slot.level < slot.GetMilestoneLevelTarget(i))
                 {
                     interiorObjects[i].status = InteriorElementStatus.NOT_AVAILABLE;
+                    interiorObjects[i].interiorElementUI.TurnOnUiElements(false);
                 }
                 else
                 {
                     interiorObjects[i].status = InteriorElementStatus.AVAILABLE;
+                    interiorObjects[i].interiorElementUI.TurnOnUiElements(true);
                 }
 
                 interiorObjects[i].TurnOffElement();
@@ -34,6 +37,7 @@ public class InteriorPanel : MonoBehaviour
             else
             {
                 interiorObjects[i].TurnOnElement();
+                interiorObjects[i].interiorElementUI.TurnOffUiElements();
             }
         }
     }
