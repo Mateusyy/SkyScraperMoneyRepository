@@ -20,16 +20,22 @@ public class GameManager : MonoBehaviour
     public ManagersPopup managersPopup;
     [SerializeField]
     private CanvasGroup managersNotification;
+    [SerializeField]
+    private CanvasGroup managersBlurBackground;
 
     [SerializeField]
     public OfficePopup officePopup;
     [SerializeField]
     private CanvasGroup officeNotification;
+    [SerializeField]
+    private CanvasGroup officeBlurBackground;
 
     [SerializeField]
     public UpgreadePopup upgreadePopup;
     [SerializeField]
     private CanvasGroup upgreadesNotification;
+    [SerializeField]
+    private CanvasGroup upgradesBlurBackground;
 
     [SerializeField]
     public OfflineEarning offlineEarningPopup;
@@ -569,10 +575,12 @@ public class GameManager : MonoBehaviour
                     panels[i].GetComponent<SlotPanel>() != null)
                 {
                     upgreadesNotification.alpha = 1f;
+                    upgradesBlurBackground.alpha = 1f;
                 }
                 else
                 {
                     upgreadesNotification.alpha = 0f;
+                    upgradesBlurBackground.alpha = 0f;
                 }
                 break;
             }
@@ -581,6 +589,7 @@ public class GameManager : MonoBehaviour
             if(upgreadeIsSomething == false)
             {
                 upgreadesNotification.alpha = 0f;
+                upgradesBlurBackground.alpha = 0f;
             }
         }
         if (upgreadePopup.GetStatus())
@@ -610,10 +619,12 @@ public class GameManager : MonoBehaviour
                     panels[i].GetComponent<SlotPanel>() != null)
                 {
                     managersNotification.alpha = 1f;
+                    managersBlurBackground.alpha = 1f;
                 }
                 else
                 {
                     managersNotification.alpha = 0f;
+                    managersBlurBackground.alpha = 0f;
                 }
                 break;
             }
@@ -622,6 +633,7 @@ public class GameManager : MonoBehaviour
             if(managerIsSomething == false)
             {
                 managersNotification.alpha = 0f;
+                managersBlurBackground.alpha = 0f;
             }
         }
         if (managersPopup.GetStatus())
@@ -639,12 +651,18 @@ public class GameManager : MonoBehaviour
             }
         }
         if (PlayerManager.instance.shouldConsiderContract)
+        {
             officeNotification.alpha = 1f;
+            officeBlurBackground.alpha = 1f;
+        }
         else
+        {
             officeNotification.alpha = 0f;
+            officeBlurBackground.alpha = 0f;
+        }
 
         //contract Panel
-        if(officePopup != null && officePopup.isShow)
+        if (officePopup != null && officePopup.isShow)
         {
             contract.RefreshContractPanel();
         }
