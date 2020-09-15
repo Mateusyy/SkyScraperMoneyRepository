@@ -3,7 +3,7 @@
     { "key": "offlinePopupDescOne", "value": "Zarobiłeś"},
     { "key": "offlinePopupDescTwo", "value": "gdy byłeś nieobecny."},
     { "key": "offlinePopupCollectOne", "value": "Zbierz"},
-    { "key": "offlinePopupCollectTwo", "value": "Obejrzyj reklamę i <color=#22EE11>podwój</color> swoje przychody!"},
+    { "key": "offlinePopupCollectTwo", "value": "Podwój pieniądze!"},
     { "key": "ManagersPanel_Title", "value": "Menadżerowie"},
     { "key": "ManagersPanel_TitleDesc", "value": "Zatrudnij menadżerów aby zaautomatyzować swoje biznesy lub aby obniżyć koszta jakie ponosisz jako właściciel wieżowca!"},
     { "key": "ManagersPanel_HireButtonText", "value": "Zatrudnij"},

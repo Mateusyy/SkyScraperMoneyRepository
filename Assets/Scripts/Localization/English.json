@@ -3,7 +3,7 @@
     { "key": "offlinePopupDescOne", "value": "You earn"},
     { "key": "offlinePopupDescTwo", "value": "when you weren't in your business!"},
     { "key": "offlinePopupCollectOne", "value": "Collect"},
-    { "key": "offlinePopupCollectTwo", "value": "Watch ad and <color=#22EE11>double</color> your profit!"},
+    { "key": "offlinePopupCollectTwo", "value": "Double up!"},
     { "key": "ManagersPanel_Title", "value": "Managers"},
     { "key": "ManagersPanel_TitleDesc", "value": "Hire a manager to automate your business or to reduce the costs you incur as a skyscraper owner!"},
     { "key": "ManagersPanel_HireButtonText", "value": "Hire"},
