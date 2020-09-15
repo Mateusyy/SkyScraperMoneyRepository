@@ -51,7 +51,7 @@ public class OfflineEarning : MonoBehaviour
             descriptionMoneyText.text = NumberFormatter.ToString(number: offlineEarning, showDecimalPlaces: true, showDollarSign: true);
             description_two.text = "when you weren't in your business!";
             collectText_one.text = "Collect";
-            collectText_two.text = "Watch ad and <color=#22EE11>double</color> your profit!";
+            collectText_two.text = "Double up!";
         //}
     }
 
