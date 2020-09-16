@@ -28,6 +28,7 @@ public class InteriorElementUI : MonoBehaviour
     private InteriorElement interiorElement;
     private Slot slot;
     private int index;
+    private bool playAvailableAnimation = false;
 
     private void Start()
     {
@@ -70,27 +71,28 @@ public class InteriorElementUI : MonoBehaviour
             if (interiorElement.status != InteriorElementStatus.BOUGHT && slot.level >= slot.GetMilestoneLevelTarget(index))
             {
                 //AVAILABLE
-                bool playAvailableAnimation = false;
                 if (PlayerManager.instance.cash >= interiorElement.price)
                 {
+                    anim.ResetTrigger("PlayIdleAnim");
                     anim.SetTrigger("PlayAvailableAnim");
                     playAvailableAnimation = true;
-
+                    TurnOnUiElements(true);
                 }
                 else
                 {
                     if (playAvailableAnimation)
                     {
+                        anim.ResetTrigger("PlayAvailableAnim");
                         anim.SetTrigger("PlayIdleAnim");
                         playAvailableAnimation = false;
                     }
+                    TurnOnUiElements(false);
                 }
 
                 icon.sprite = hammerIcon;
                 firstTextInfo.text = NumberFormatter.ToString(interiorElement.price, false, true, false);
                 secondTextInfo.text = LocalizationManager.instance.StringForKey("to_buy_text");
 
-                TurnOnUiElements(true);
             }
         }
     }
