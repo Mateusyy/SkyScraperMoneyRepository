@@ -5,7 +5,7 @@ using UnityEngine;
 public enum TaskType { CASH, FLOOR_ENTITY_COLLECTION, FLOOR_LEVEL, HAS_MANAGER }
 public class TasksManager : MonoBehaviour
 {
-    public List<Task> tasks = new List<Task>();
+    public List<TaskToBildFloor> tasks = new List<TaskToBildFloor>();
     private BuySlotPanel buySlotPanel;
 
     private void Awake()
@@ -85,7 +85,7 @@ public class TasksManager : MonoBehaviour
 
     private void GenerateCashTask()
     {
-        tasks.Add(new Task
+        tasks.Add(new TaskToBildFloor
         {
             Name = "Collect Cash",
             Type = TaskType.CASH,
@@ -96,7 +96,7 @@ public class TasksManager : MonoBehaviour
 
     private void GenerateCollectEntityTask(int value, int numberOfPreviousFloors = 1)
     {
-        tasks.Add(new Task
+        tasks.Add(new TaskToBildFloor
         {
             Name = "Collect entity of previous floor",
             Type = TaskType.FLOOR_ENTITY_COLLECTION,
@@ -108,7 +108,7 @@ public class TasksManager : MonoBehaviour
 
     private void GenerateReachLevelTask(int value, int numberOfPreviousFloors = 1)
     {
-        tasks.Add(new Task
+        tasks.Add(new TaskToBildFloor
         {
             Name = "Get level of previous floor",
             Type = TaskType.FLOOR_LEVEL,

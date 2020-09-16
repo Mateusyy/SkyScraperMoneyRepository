@@ -1,14 +1,21 @@
 ﻿using Firebase;
 using Firebase.Analytics;
+using Firebase.RemoteConfig;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using UnityEngine;
+using System.Threading.Tasks;
+using System;
+using Firebase.Extensions;
 
 public class FirebaseInit : MonoBehaviour
 {
     //public Text infoText;
     public string authCode = string.Empty;
     public Firebase.Auth.FirebaseUser user;
+
+    private DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
+
 
     private void Awake()
     {
@@ -20,11 +27,18 @@ public class FirebaseInit : MonoBehaviour
         //Firebase Analitics
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
-            FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
-            if (task.IsCompleted)
+            dependencyStatus = task.Result;
+            if (dependencyStatus == DependencyStatus.Available)
             {
-
+                InitializeFirebase();
             }
+            else
+            {
+                Debug.LogError(
+                  "Could not resolve all Firebase dependencies: " + dependencyStatus);
+            }
+
+            FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
         });
 
         //Google Play Service Signin
@@ -36,6 +50,78 @@ public class FirebaseInit : MonoBehaviour
         PlayGamesPlatform.Activate();
 
         SignIn();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            ShowData();
+        }
+    }
+
+    private void InitializeFirebase()
+    {
+        Debug.Log("Remote config ready");
+    }
+
+    public void FetchFirebase()
+    {
+        FetchDataAsync();
+    }
+
+    public void ShowData()
+    {
+        Debug.Log("TestRemoteConfigValue: " + FirebaseRemoteConfig.GetValue("TestRemoteConfigValue").LongValue);
+    }
+
+    public Task FetchDataAsync()
+    {
+        Debug.Log("Fetching data...");
+        Task fetchTask = FirebaseRemoteConfig.FetchAsync(
+            TimeSpan.Zero);
+
+        return fetchTask.ContinueWithOnMainThread(FetchComplete);
+    }
+
+    void FetchComplete(Task fetchTask)
+    {
+        if (fetchTask.IsCanceled)
+        {
+            Debug.Log("Fetch canceled.");
+        }
+        else if (fetchTask.IsFaulted)
+        {
+            Debug.Log("Fetch encountered an error.");
+        }
+        else if (fetchTask.IsCompleted)
+        {
+            Debug.Log("Fetch completed successfully!");
+        }
+
+        var info = Firebase.RemoteConfig.FirebaseRemoteConfig.Info;
+        switch (info.LastFetchStatus)
+        {
+            case Firebase.RemoteConfig.LastFetchStatus.Success:
+                Firebase.RemoteConfig.FirebaseRemoteConfig.ActivateFetched();
+                Debug.Log(string.Format("Remote data loaded and ready (last fetch time {0}).",
+                                       info.FetchTime));
+                break;
+            case Firebase.RemoteConfig.LastFetchStatus.Failure:
+                switch (info.LastFetchFailureReason)
+                {
+                    case Firebase.RemoteConfig.FetchFailureReason.Error:
+                        Debug.Log("Fetch failed for unknown reason");
+                        break;
+                    case Firebase.RemoteConfig.FetchFailureReason.Throttled:
+                        Debug.Log("Fetch throttled until " + info.ThrottledEndTime);
+                        break;
+                }
+                break;
+            case Firebase.RemoteConfig.LastFetchStatus.Pending:
+                Debug.Log("Latest Fetch call still pending.");
+                break;
+        }
     }
 
     public void SignIn()

@@ -16,12 +16,12 @@ public class TaskPanel : MonoBehaviour
 
     public Sprite[] statusSprites;
     public IconAndName[] icons;
-    private Task task;
+    private TaskToBildFloor task;
 
     public bool status = false;
     private bool iconIsSet;
 
-    public void Initialize(Task task)
+    public void Initialize(TaskToBildFloor task)
     {
         this.task = task;
     }

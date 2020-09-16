@@ -187,6 +187,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator Start()
     {
         FirebaseInit.RegisterEvent("LoadGame", "Value", 1);
+        FindObjectOfType<FirebaseInit>().FetchFirebase();
 
         //PlayerManager.Create();
         DataManager.Verify();

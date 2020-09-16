@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class Task
+public class TaskToBildFloor
 {
     [SerializeField]
     public string Name;
@@ -17,11 +17,11 @@ public class Task
     [SerializeField]
     public int IndexOfFloor;
 
-    public Task()
+    public TaskToBildFloor()
     {
     }
 
-    public Task(string name, TaskType type, float valueToCollect, float currentValueOfCollection)
+    public TaskToBildFloor(string name, TaskType type, float valueToCollect, float currentValueOfCollection)
     {
         Name = name;
         Type = type;
@@ -29,7 +29,7 @@ public class Task
         CurrentValueOfCollection = currentValueOfCollection;
     }
 
-    public Task(string name, TaskType type, float valueToCollect, float currentValueOfCollection, int indexOfFloor)
+    public TaskToBildFloor(string name, TaskType type, float valueToCollect, float currentValueOfCollection, int indexOfFloor)
         : this(name, type, valueToCollect, currentValueOfCollection)
     {
         IndexOfFloor = indexOfFloor;
