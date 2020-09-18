@@ -323,6 +323,7 @@ public class PlayerManager
     public void IncrementCashBy(float amount)
     {
         cash += amount; //Save();
+        MainUI.instance.PlayTopCashAnim();
     }
 
     public void DecrementCashBy(float amount)

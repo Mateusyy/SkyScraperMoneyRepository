@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
     private RectTransform scrollViewContent;
     [SerializeField]
     private SlotPanel slotPanelPrefab;
+    [SerializeField]
+    private GameObject whenBannerActiveImagePrefab;
     public Sprite[] slotPanelSprites;
     public Sprite[] slotPanelSymbols;
 
@@ -187,7 +189,10 @@ public class GameManager : MonoBehaviour
     private IEnumerator Start()
     {
         FirebaseInit.RegisterEvent("LoadGame", "Value", 1);
-        FindObjectOfType<FirebaseInit>().FetchFirebase();
+        if(FindObjectOfType<FirebaseInit>() != null)
+        {
+            FindObjectOfType<FirebaseInit>().FetchFirebase();
+        }
 
         //PlayerManager.Create();
         DataManager.Verify();
@@ -455,7 +460,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            panels[1].GetComponent<SlotPanel>().slot.timer = 0f;
+            BoosterX2_ActionAfterFinishedAdvert();
             //PlayerManager.instance.DecrementCashBy(PlayerManager.instance.cash);
         }
 
@@ -473,9 +478,6 @@ public class GameManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        //changeBuilding
-        FindObjectOfType<ChangeBuilding>().SetVisible();
-
         //cashtext
         cashText.text = NumberFormatter.ToString(number: PlayerManager.instance.cash, showDecimalPlaces: true);
         goldText.text = NumberFormatter.ToString(number: PlayerManager.instance.gold, showDecimalPlaces: false, showDollarSign: false);
@@ -719,6 +721,14 @@ public class GameManager : MonoBehaviour
         
         slot.SetUnlocked();
         
+        UpdateUI();
+    }
+
+    public void UpdateMainViewWhenBannerIsActive()
+    {
+        GameObject go = Instantiate(whenBannerActiveImagePrefab, scrollViewContent);
+        go.transform.SetAsLastSibling();
+
         UpdateUI();
     }
 

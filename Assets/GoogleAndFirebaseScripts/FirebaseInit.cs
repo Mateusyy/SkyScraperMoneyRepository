@@ -7,6 +7,8 @@ using UnityEngine;
 using System.Threading.Tasks;
 using System;
 using Firebase.Extensions;
+using UnityEngine.PlayerLoop;
+using System.Collections;
 
 public class FirebaseInit : MonoBehaviour
 {
@@ -15,11 +17,24 @@ public class FirebaseInit : MonoBehaviour
     public Firebase.Auth.FirebaseUser user;
 
     private DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
+    private Coroutine coroutine;
 
 
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+        if(coroutine == null)
+        {
+            coroutine = StartCoroutine(ExecuteLoadAndShowDataAfterTime(10f));
+        }
+    }
+
+    IEnumerator ExecuteLoadAndShowDataAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        LoadAndShowData();
+
+        coroutine = null;
     }
 
     private void Start()
@@ -54,9 +69,8 @@ public class FirebaseInit : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            ShowData();
         }
     }
 
@@ -70,9 +84,23 @@ public class FirebaseInit : MonoBehaviour
         FetchDataAsync();
     }
 
-    public void ShowData()
+    public void LoadAndShowData()
     {
-        Debug.Log("TestRemoteConfigValue: " + FirebaseRemoteConfig.GetValue("TestRemoteConfigValue").LongValue);
+        var unityAdsManager = FindObjectOfType<UnityADSManager>();
+        if (unityAdsManager != null)
+        {
+            bool value = FirebaseRemoteConfig.GetValue("Banner").BooleanValue;
+            Debug.Log("<b><color=red>" + value + "</color></b>");
+
+            if (value == true)
+            {
+                unityAdsManager.SetBannerVariable(true);
+            }
+            if (value == false)
+            {
+                unityAdsManager.SetBannerVariable(false);
+            }
+        }
     }
 
     public Task FetchDataAsync()
@@ -96,7 +124,7 @@ public class FirebaseInit : MonoBehaviour
         }
         else if (fetchTask.IsCompleted)
         {
-            Debug.Log("Fetch completed successfully!");
+            //LoadAndShowData();
         }
 
         var info = Firebase.RemoteConfig.FirebaseRemoteConfig.Info;
@@ -122,6 +150,7 @@ public class FirebaseInit : MonoBehaviour
                 Debug.Log("Latest Fetch call still pending.");
                 break;
         }
+
     }
 
     public void SignIn()

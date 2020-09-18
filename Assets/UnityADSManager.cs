@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine.Advertisements;
-
 using GoogleMobileAds.Api;
-using GoogleMobileAds.Api.Mediation.UnityAds;
 
 using System;
 using Firebase.Analytics;
 
-public class UnityADSManager : MonoBehaviour//, IUnityAdsListener
+public class UnityADSManager : MonoBehaviour
 {
     public static UnityADSManager instance;
+
+    private BannerView bannerView;
+    private RewardedAd rewardedAd;
+
+    [HideInInspector]
     public int indexOfSlotForBenefits;
+
+    public bool banner = false;
 
     private void Awake()
     {
@@ -38,7 +42,23 @@ public class UnityADSManager : MonoBehaviour//, IUnityAdsListener
         none
     }
 
-    private RewardedAd rewardedAd;
+    public void SetBannerVariable(bool value)
+    {
+        this.banner = value;
+
+        MainUI mainUI = FindObjectOfType<MainUI>();
+        if(banner == true && mainUI != null && mainUI.bottomPanel != null)
+        {
+            mainUI.SetHeightAndPosYForRectTransform(mainUI.bottomPanel, 300);
+            GameManager.instance.UpdateMainViewWhenBannerIsActive();
+            RequestBannerAd();
+        }
+        else
+        {
+            mainUI.SetHeightAndPosYForRectTransform(mainUI.bottomPanel, 160);
+            DestroyBannerAd();
+        }
+    }
 
     private void Start()
     {
@@ -67,6 +87,44 @@ public class UnityADSManager : MonoBehaviour//, IUnityAdsListener
         this.rewardedAd.LoadAd(request);
     }
 
+    #region BANNER ADS
+
+    public void RequestBannerAd()
+    {
+
+#if UNITY_ANDROID
+        string adUnitId = "ca-app-pub-1822284172999308/7903029881";
+#elif UNITY_IPHONE
+        string adUnitId = "ca-app-pub-3940256099942544/2934735716";
+#else
+        string adUnitId = "unexpected_platform";
+#endif
+
+        // Clean up banner before reusing
+        if (bannerView != null)
+        {
+            bannerView.Destroy();
+        }
+
+        // Create a 320x50 banner at top of the screen
+        bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
+
+        AdRequest request = new AdRequest.Builder().Build();
+        bannerView.LoadAd(request);
+    }
+
+    public void DestroyBannerAd()
+    {
+        if (bannerView != null)
+        {
+            bannerView.Destroy();
+        }
+    }
+
+    #endregion
+
+    #region REWARDED_AD
+
     public void CreateAndLoadRewardedAd()
     {
 #if UNITY_ANDROID
@@ -91,7 +149,6 @@ public class UnityADSManager : MonoBehaviour//, IUnityAdsListener
 
     public void HandleRewardedAdLoaded(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleRewardedAdLoaded event received");
     }
 
     public void HandleRewardedAdFailedToLoad(object sender, AdErrorEventArgs args)
@@ -161,4 +218,5 @@ public class UnityADSManager : MonoBehaviour//, IUnityAdsListener
             this.rewardedAd.Show();
         }
     }
+    #endregion
 }

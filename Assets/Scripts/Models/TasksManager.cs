@@ -55,13 +55,11 @@ public class TasksManager : MonoBehaviour
             case 6:
                 GenerateReachLevelTask(5);
                 GenerateReachLevelTask(15, 2);
-                GenerateCollectEntityTask(3);
                 break;
             //gym
             case 7:
                 GenerateReachLevelTask(5);
-                GenerateCollectEntityTask(3);
-                GenerateCollectEntityTask(13,2);
+                GenerateCollectEntityTask(3,2);
                 break;
             //radio
             case 8:
@@ -71,9 +69,9 @@ public class TasksManager : MonoBehaviour
                 break;
             //lab
             case 9:
-                GenerateCollectEntityTask(5);
-                GenerateCollectEntityTask(13, 2);
-                GenerateCollectEntityTask(25, 3);
+                GenerateReachLevelTask(5);
+                GenerateReachLevelTask(10, 2);
+                GenerateReachLevelTask(15, 3);
                 break;
             default:
                 GenerateCashTask();

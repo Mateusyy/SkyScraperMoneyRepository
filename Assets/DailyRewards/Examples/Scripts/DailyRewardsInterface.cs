@@ -251,7 +251,6 @@ namespace NiobiumStudios
 				lastRewardIdx = dailyRewardsUI.Count - 1;
 
             var target = dailyRewardsUI[lastRewardIdx].GetComponent<RectTransform>();
-            Debug.LogError("lasRewardIdx: " + lastRewardIdx + " || " + "dailyRewardUi.Count: " + dailyRewardsUI.Count);
 
             var content = scrollRect.content;
 
