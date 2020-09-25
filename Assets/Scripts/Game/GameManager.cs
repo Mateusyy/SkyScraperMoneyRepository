@@ -115,6 +115,11 @@ public class GameManager : MonoBehaviour
 
     public static bool pauseBeacuseADS = false;
 
+    //BULK
+    public int bulkLevelUpIndex = 0;
+    public Button bulkSimpleTypeButton;
+    public Sprite[] bulkButtonSprites;
+
     private void Awake()
     {
         if (instance == null)
@@ -689,6 +694,15 @@ public class GameManager : MonoBehaviour
         {
             upgradeEachFloorPopup.Refresh();
         }
+
+        if(upgradeEachFloorPopup.typeOfUpgradeSystem == TypeOfUpgradeSystem.ADVANCED)
+        {
+            bulkSimpleTypeButton.gameObject.SetActive(false);
+        }
+        else //SIMPLE
+        {
+            bulkSimpleTypeButton.gameObject.SetActive(true);
+        }
     }
 
     #region Callbacks
@@ -917,5 +931,19 @@ public class GameManager : MonoBehaviour
         {
             BlockImage.gameObject.SetActive(false);
         }
+    }
+
+    public void BulkSimpleTypeButtonOnPressed()
+    {
+        if(bulkLevelUpIndex < 3)
+        {
+            bulkLevelUpIndex++;
+        }
+        else
+        {
+            bulkLevelUpIndex = 0;
+        }
+
+        bulkSimpleTypeButton.GetComponent<Image>().sprite = bulkButtonSprites[bulkLevelUpIndex];
     }
 }

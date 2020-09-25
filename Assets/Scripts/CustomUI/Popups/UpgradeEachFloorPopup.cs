@@ -2,16 +2,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum TypeOfUpgradeSystem { ADVANCED, SIMPLE };
+
+
 public class UpgradeEachFloorPopup : MonoBehaviour
 {
+    public TypeOfUpgradeSystem typeOfUpgradeSystem;
+
     public List<UpgradeEachFloor_Button> buttons = new List<UpgradeEachFloor_Button>();
 
     public Animator anim;
     private Slot slot;
 
+    [SerializeField]
+    private Button bulkButton;
     [SerializeField]
     private Text title;
     [SerializeField]
@@ -46,6 +54,18 @@ public class UpgradeEachFloorPopup : MonoBehaviour
 
     public bool isVisible = false;
     public List<ItemOfListElementsToUnlock> itemsOfListElementsToUnlock = new List<ItemOfListElementsToUnlock>();
+
+    private void Awake()
+    {
+        if(typeOfUpgradeSystem == TypeOfUpgradeSystem.ADVANCED)
+        {
+            if(bulkButton != null) bulkButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            if (bulkButton != null) bulkButton.gameObject.SetActive(true);
+        }
+    }
 
     private void Start()
     {
@@ -160,7 +180,14 @@ public class UpgradeEachFloorPopup : MonoBehaviour
 
     private void SetUpButton()
     {
-        upgradeButton.interactable = PlayerManager.instance.cash >= slot.currentCostValue ? true : false;
+        if(typeOfUpgradeSystem == TypeOfUpgradeSystem.ADVANCED)
+        {
+            upgradeButton.interactable = PlayerManager.instance.cash >= slot.currentCostValue ? true : false;
+        }
+        else
+        {
+            //upgradeButton.interactable = PlayerManager.instance.cash >= slot.currentCostValue ? true : false;
+        }
     }
 
     public void PanelButton_OnPressed(int index)
@@ -172,7 +199,7 @@ public class UpgradeEachFloorPopup : MonoBehaviour
                 buttons[i].SetAvailable();
                 slot.bulkLevelUpIndex = index;
                 SetUpTexts(slot.bulkLevelUpIndex);
-                slot.currentCostValue = slot.CalculateCurrentCostValue();
+                slot.currentCostValue = slot.CalculateCurrentCostValueAdvanced();
                 SetUpButton();
             }
             else
@@ -182,17 +209,29 @@ public class UpgradeEachFloorPopup : MonoBehaviour
         }
     }
 
+    public void SetSlot(Slot slot)
+    {
+        this.slot = slot;
+    }
+
     public void UpgradeButton_OnPressed()
     {
         bool playParticle = slot.UpgreadeToLastCalculateLevel();
-        slot.currentCostValue = slot.CalculateCurrentCostValue();
-        SetUpButton();
-
-        if (playParticle)
+        if(typeOfUpgradeSystem == TypeOfUpgradeSystem.ADVANCED)
         {
-            PlayUpgreadeParticle();
-            PlayUpgradeSound();
+            slot.currentCostValue = slot.CalculateCurrentCostValueAdvanced();
+
+            if (playParticle)
+            {
+                PlayUpgreadeParticle();
+            }
         }
+        else //SIMPLE
+        {
+            slot.currentCostValue = slot.CalculateCurrentCostValueSimple();
+        }
+        SetUpButton();
+        PlayUpgradeSound();
 
         GameManager.instance.panels[slot.index].GetComponent<SlotPanel>().Refresh();
     }

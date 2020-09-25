@@ -185,7 +185,7 @@ public class Slot
         timeToProduceThisUnit = -1;
         isProducing = false;
         bulkLevelUpIndex = 0;
-        currentCostValue = CalculateCurrentCostValue();
+        currentCostValue = CalculateCurrentCostValueAdvanced();
         timer = 0;
     }
 
@@ -545,11 +545,19 @@ public class Slot
 
     #endregion
 
-    public float CalculateCurrentCostValue()
+    public float CalculateCurrentCostValueAdvanced()
     {
         return currentCostValue = bulkLevelUpIndex < 3
             ?
             UpgreadeXLevelsCost(Constant.BULK_UPGRADE_LEVELS[bulkLevelUpIndex]) :
+            UpgreadeMaxLevelsCost();
+    }
+
+    public float CalculateCurrentCostValueSimple()
+    {
+        return currentCostValue = GameManager.instance.bulkLevelUpIndex < 3
+            ?
+            UpgreadeXLevelsCost(Constant.BULK_UPGRADE_LEVELS[GameManager.instance.bulkLevelUpIndex]) :
             UpgreadeMaxLevelsCost();
     }
 

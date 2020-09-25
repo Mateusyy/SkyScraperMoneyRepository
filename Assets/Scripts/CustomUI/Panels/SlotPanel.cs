@@ -28,6 +28,8 @@ public class SlotPanel : MonoBehaviour
     [SerializeField]
     private Text upgreadeCostText;
     [SerializeField]
+    private ParticleSystem upgradeEffect;
+    [SerializeField]
     private Text timeText;
     [SerializeField]
     private Text counter;
@@ -53,10 +55,12 @@ public class SlotPanel : MonoBehaviour
     public int slotLevel;
     public int index;
     public InteriorPanel interior = null;
+    private UpgradeEachFloorPopup upgradeEachFloorPopup;
 
     public void Initialize(Slot slot)
     {
         this.slot = slot;
+        upgradeEachFloorPopup = FindObjectOfType<UpgradeEachFloorPopup>();
 
         try
         {
@@ -111,8 +115,17 @@ public class SlotPanel : MonoBehaviour
 
         upgreadeButton.onClick.AddListener(() =>
         {
-            //Test
-            FindObjectOfType<UpgradeEachFloorPopup>().Show(slot, interior);
+            UpgradeEachFloorPopup upgradeEachFloorPopup = FindObjectOfType<UpgradeEachFloorPopup>();
+            if(upgradeEachFloorPopup.typeOfUpgradeSystem == TypeOfUpgradeSystem.ADVANCED)
+            {
+                upgradeEachFloorPopup.Show(slot, interior);
+            }
+            else
+            {
+                upgradeEachFloorPopup.SetSlot(slot);
+                upgradeEachFloorPopup.UpgradeButton_OnPressed();
+                upgradeEffect.Play();
+            }
         });
 
         slotImageBackgroundGO.GetComponent<Image>().sprite = GameManager.instance.slotPanelSprites[numberOfBuilding - 1];
@@ -147,23 +160,56 @@ public class SlotPanel : MonoBehaviour
         {
 
             float costToUpgreade;
-            if (slot.bulkLevelUpIndex < 3)
+            if (upgradeEachFloorPopup.typeOfUpgradeSystem == TypeOfUpgradeSystem.ADVANCED)
             {
-                costToUpgreade = slot.UpgreadeXLevelsCost(Constant.BULK_UPGRADE_LEVELS[slot.bulkLevelUpIndex]);
+                if (slot.bulkLevelUpIndex < 3)
+                {
+                    costToUpgreade = slot.UpgreadeXLevelsCost(Constant.BULK_UPGRADE_LEVELS[slot.bulkLevelUpIndex]);
+                }
+                else
+                {
+                    costToUpgreade = slot.UpgreadeMaxLevelsCost();
+                }
             }
-            else
+            else //SIMPLE
             {
-                costToUpgreade = slot.UpgreadeMaxLevelsCost();
+                if (GameManager.instance.bulkLevelUpIndex < 3)
+                {
+                    costToUpgreade = slot.UpgreadeXLevelsCost(Constant.BULK_UPGRADE_LEVELS[GameManager.instance.bulkLevelUpIndex]);   
+                }
+                else
+                {
+                    costToUpgreade = slot.UpgreadeMaxLevelsCost();
+                }
+
+                if (PlayerManager.instance.cash < costToUpgreade)
+                {
+                    upgreadeButton.interactable = false;
+                }
+                else
+                {
+                    upgreadeButton.interactable = true;
+                }
             }
 
             bool canUpgreade = false;
             for (int i = 0; i < interior.interiorObjects.Count; i++)
             {
-                if(interior.interiorObjects[i].GetComponent<InteriorElement>().status != InteriorElementStatus.BOUGHT &&
+                if(upgradeEachFloorPopup.typeOfUpgradeSystem == TypeOfUpgradeSystem.ADVANCED)
+                {
+                    if (interior.interiorObjects[i].GetComponent<InteriorElement>().status != InteriorElementStatus.BOUGHT &&
                     slot.level > slot.GetMilestoneLevelTarget(i) &&
                     PlayerManager.instance.cash >= interior.interiorObjects[i].GetComponent<InteriorElement>().price)
+                    {
+                        canUpgreade = true;
+                    }
+                }
+                else //SIMPLE
                 {
-                    canUpgreade = true;
+                    //if (PlayerManager.instance.cash >= interior.interiorObjects[i].GetComponent<InteriorElement>().price)
+                    //{
+                    //    canUpgreade = true;
+                    //}
                 }
             }
 
@@ -179,8 +225,17 @@ public class SlotPanel : MonoBehaviour
                 upgradeArrow.alpha = 0.0f;
             }
 
-            //upgreadeCostText.text = NumberFormatter.ToString(costToUpgreade, showDecimalPlaces: true);
-            upgreadeCostText.text = slot.level.ToString();
+            if(upgradeEachFloorPopup.typeOfUpgradeSystem == TypeOfUpgradeSystem.ADVANCED)
+            {
+                upgreadeCostText.text = slot.level.ToString();
+            }
+            else //SIMPLE
+            {
+                if(costToUpgreade < 100f)
+                    upgreadeCostText.text = NumberFormatter.ToString(costToUpgreade, showDecimalPlaces: true, true, false);
+                else
+                    upgreadeCostText.text = NumberFormatter.ToString(costToUpgreade, showDecimalPlaces: false, true, false);
+            }
         }
         else
         {

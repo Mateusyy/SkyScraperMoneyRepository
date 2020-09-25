@@ -410,10 +410,10 @@ RectTransform:
   m_Father: {fileID: 7060817696078920958}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.11100001, y: 0.63033146}
-  m_AnchorMax: {x: 0.8913633, y: 1}
-  m_AnchoredPosition: {x: 0.056365967, y: -2.9000092}
-  m_SizeDelta: {x: 29.6, y: 7.7}
+  m_AnchorMin: {x: 0.034781612, y: 0.5906686}
+  m_AnchorMax: {x: 0.9624368, y: 1}
+  m_AnchoredPosition: {x: 0.55636597, y: 0.59999084}
+  m_SizeDelta: {x: 0.6000004, y: 0.6999998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2319194849773120179
 CanvasRenderer:
@@ -618,6 +618,7 @@ MonoBehaviour:
   profitText: {fileID: 2244100050662919902}
   upgreadeButton: {fileID: 6253578671426901050}
   upgreadeCostText: {fileID: 7657241705505672109}
+  upgradeEffect: {fileID: 2206043229468077692}
   timeText: {fileID: 6465368550030890642}
   counter: {fileID: 4463779072747342579}
   adBoosterImage: {fileID: 1258526437926695771}
@@ -11484,10 +11485,10 @@ RectTransform:
   m_Father: {fileID: 7060817696078920958}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.029467879, y: 0}
-  m_AnchorMax: {x: 0.97284085, y: 0.7088314}
+  m_AnchorMin: {x: 0.066, y: 0}
+  m_AnchorMax: {x: 0.93634486, y: 0.7088314}
   m_AnchoredPosition: {x: 0.061706543, y: 0.024993896}
-  m_SizeDelta: {x: -1.677, y: -0.1}
+  m_SizeDelta: {x: -0.44145203, y: -0.099998474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2823207028800056831
 CanvasRenderer:
@@ -12079,7 +12080,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:

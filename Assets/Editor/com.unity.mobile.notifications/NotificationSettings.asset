@@ -42,13 +42,13 @@ MonoBehaviour:
   TrackedResourceAssets:
   - Id: small_icon_0
     Type: 0
-    Asset: {fileID: 2800000, guid: 52ab1513f62325742815633d67318170, type: 3}
+    Asset: {fileID: 2800000, guid: 21aa5d469aef29c48951703b3fdfd47e, type: 3}
   - Id: large_icon_0
     Type: 1
     Asset: {fileID: 2800000, guid: 52ab1513f62325742815633d67318170, type: 3}
   - Id: small_icon_retention
     Type: 0
-    Asset: {fileID: 2800000, guid: 52ab1513f62325742815633d67318170, type: 3}
+    Asset: {fileID: 2800000, guid: 21aa5d469aef29c48951703b3fdfd47e, type: 3}
   - Id: large_icon_retention
     Type: 1
     Asset: {fileID: 2800000, guid: 52ab1513f62325742815633d67318170, type: 3}

@@ -21,6 +21,7 @@ public class TutorialManager : MonoBehaviour
     public void PlayTutorialStep(int index)
     {
         FirebaseAnalytics.LogEvent("Tutorial", new Parameter("Step_Number", index));
+        Debug.Log("Tutorial " + index);
 
         _index = index;
         tutorialIsActive = true;
